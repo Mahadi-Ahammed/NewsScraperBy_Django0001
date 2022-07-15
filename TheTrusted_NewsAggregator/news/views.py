@@ -23,11 +23,11 @@ def scrape(request):
     for artcile in News:
         main = artcile.find('a')
         link = main['href'] if main else "N/A"
-        if main!=None and link!="N/A":
+        if main is not None and link!="N/A":
             PC=main.find('img')
             image_src = str(PC.get('src')) if PC else "N/A"
             title = main.text
-        if title!=None and title!="" and link != "N/A":
+        if title is not None and title!="" and link != "N/A":
             new_headline = Headline()
             new_headline.title = title
             new_headline.url = link
